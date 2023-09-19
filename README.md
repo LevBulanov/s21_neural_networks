@@ -32,22 +32,16 @@ One way to get a more accurate model is to switch to tree-based models that sepa
 Let’s refresh the definition of the Logistic Regression model.
 Logistic Regression is model of the following form:
 
-```math
-p(y=1|x; \theta) = \sigma(a) = \frac {1} {1 + e^{-a}} \\ \text { where a = $\omega^Tx + b$ }
-```
+[latex] - `p(y=i|\mathbf{x}, \boldsymbol{\theta}) = \sigma (a) = \frac{1}{1 + e^{-a}}, \text{where } a = \mathbf{w}^T \mathbf{x} + b \text{ and }  \boldsymbol{\theta} = (\mathbf{w}, b)`
 
 Function $`\boldsymbol \sigma`$ is called **sigmoid**. Logistic Regression is equivalent to linear combination of features of matrix $`\boldsymbol X`$ and adding bias term **b**. Linear combination of features with sigmoid non-linearity can be viewed as an implicit feature generation process.
 Putting another Logistic Regression classifier on top of the new feature space allows to model more complex functions:
 
-```math
-\large
-\begin {align*}
-    p(y|x; \theta) &= \text{Ber}(y|\sigma(a_3)) \\
-    a_3 &= \omega_3^T z_2 + b_3 \\
-    z_2 &= \varphi(\boldsymbol {W}_2 z_1 + b_2) \\
-    z_1 &= \varphi(\boldsymbol {W}_1 z_1 + b_1) \\
-\end {align*}
-```
+[latex] - `p(y|\mathbf{x}, \boldsymbol{\theta}) = \text{Ber}(y|\sigma(\mathbf{a}_3))`
+[latex] - `\mathbf{a}_3 = \mathbf{w}_3^T \mathbf{z}_2 + b_3`
+[latex] - `\mathbf{z}_2 = \varphi(\mathbf{W}_2 \mathbf{z}_1 + b_2)`
+[latex] - `\mathbf{z}_1 = \varphi(\mathbf{W}_1 \mathbf{x} + b_1)`
+
 
 [Source](https://probml.github.io/pml-book/book1.html)
 
