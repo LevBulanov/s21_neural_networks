@@ -202,4 +202,4 @@ Chain rule is explained in [source](https://en.wikipedia.org/wiki/Chain_rule)
 
 Matrix differentiation is cracked in the following [source](http://d2l.ai/chapter_preliminaries/autograd.html)
 
-💡 [Tap here](https://forms.yandex.ru/cloud/646b479ac769f12ef19bce19/) **to leave your feedback on the project**. Pedago Team really tries to make your educational experience better.
+>Please leave feedback on the project in the [feedback form.](https://forms.yandex.ru/cloud/646b479ac769f12ef19bce19/) 
