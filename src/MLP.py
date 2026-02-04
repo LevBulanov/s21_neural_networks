@@ -70,7 +70,12 @@ class MyMLP:
        
         if self.activation == 'relu':
             self.a_1 = self.relu(self.z_1)
-        #тут еще будет другая возможая ФА
+        elif self.activation == 'sigmoid':
+            self.a_1 = self.sigmoid(self.z_1)
+        elif self.activation == 'cosine':
+            self.a_1 = self.cosine(self.z_1)
+        else:
+            raise ValueError("Unknown activation")
 
         self.z_2 = self.a_1 @ self.hidden_layer_weights.T + self.hidden_layer_bias
         self.a_2 = self.sigmoid(self.z_2)
@@ -89,6 +94,12 @@ class MyMLP:
 
         if self.activation == 'relu':
             dZ_1 = dA_1 * self.relu_grad(self.z_1)
+        elif self.activation == 'sigmoid':
+            dZ_1 = dA_1 * self.sigmoid_grad(self.a_1)
+        elif self.activation == 'cosine':
+            dZ_1 = dA_1 * self.cosine_grad(self.z_1)
+        else:
+            raise ValueError("Unknown activation")
 
         self.dW_1 = dZ_1.T @ X / batch_size
         self.db_1 = dZ_1.mean(axis=0)
@@ -159,3 +170,15 @@ class MyMLP:
     def sigmoid(x):
         x = np.clip(x, -500, 500)
         return 1 / (1 + np.exp(-x))
+
+    @staticmethod
+    def sigmoid_grad(a):
+        return a * (1 - a)
+    
+    @staticmethod
+    def cosine(x):
+        return np.cos(x)
+    
+    @staticmethod
+    def cosine_grad(z):
+        return -np.sin(z)
